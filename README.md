@@ -27,11 +27,99 @@ git clone https://github.com/khushboo787/Hyperface-Task
 ```
 
 
-#### The application will be accessible at http://localhost:8888
+#### The application will be accessible at http://localhost:8080
 
 ### Build and Run the Application
 ```
 mvn clean install
 mvn spring-boot:run
 ```
+### API Endpoints
+- **Add a New Task:** `POST : http://localhost:8080/api/tasks/addTask`
+
+##### Request
+```
+
+{
+  "description": "buy new books"
+}
+
+```
+##### Response
+
+```
+
+{
+  "id": 1,
+  "description": "buy new books",
+  "status": "Pending"
+}
+
+```
+
+
+- **Mark Task as Complete:** `PUT : http://localhost:8080/api/tasks/markTaskAsComplete/{id}`
+
+##### Request
+```
+ PUT : http://localhost:8080/api/tasks//markTaskAsComplete/1
+
+```
+##### Response
+
+```
+
+{
+  "id": 1,
+  "description": "buy new books",
+  "status": "Complete"
+}
+
+```
+
+
+- **Remove a Task:** `DELETE : http://localhost:8080/api/tasks/deleteTaskById/{id}`
+
+##### Request
+```
+ DELETE : http://localhost:8080/api/tasks/deleteTaskById/4
+
+```
+##### Response
+
+```
+Task with ID 4 deleted successfully.
+
+```
+
+- **View All Tasks:** `GET : http://localhost:8080/api/tasks/getAllTasks`
+
+##### Request
+```
+ GET : http://localhost:8080/api/tasks/getAllTasks
+
+```
+##### Response
+
+```
+[
+  {
+    "id": 5,
+    "description": "buy vegetables",
+    "status": "Pending"
+  },
+  {
+    "id": 7,
+    "description": "buy books",
+    "status": "Complete"
+  },
+  {
+    "id": 9,
+    "description": "buy vegetables",
+    "status": "Pending"
+  }
+]
+
+```
+
 
